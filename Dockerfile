@@ -10,4 +10,4 @@ RUN pip3 install --no-cache-dir ansible \
       && ansible --version
 
 COPY ansible-docker.py /ansible-docker.py
-ENTRYPOINT ["/ansible-docker.py"]
+CMD [ "python", "/ansible-docker.py"]
