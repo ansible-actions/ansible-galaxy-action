@@ -1,0 +1,19 @@
+---
+name: Action Ansible Galaxy Release
+description: Work in Progress...
+author: L3D <l3d@c3woc.de>
+
+inputs:
+  test:
+    description: |
+      Test
+      For example './', 'roles/my_role/' or 'site.yml'
+    required: false
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    TEST: ${{ inputs.test }}
+branding:
+  icon: 'upload-cloud'
+  color: 'black'
