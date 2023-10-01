@@ -9,8 +9,5 @@ LABEL "homepage"="https://github.com/ansible-actions/ansible-publish-galaxy"
 RUN pip3 install --no-cache-dir ansible \
       && ansible --version
 
-# Fix potential UTF-8 errors
-RUN locale-gen en_US.UTF-8
-
 COPY ansible-docker.sh /ansible-docker.sh
 ENTRYPOINT ["/ansible-docker.sh"]
