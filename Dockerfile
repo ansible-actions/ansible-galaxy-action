@@ -9,5 +9,5 @@ LABEL "homepage"="https://github.com/ansible-actions/ansible-publish-galaxy"
 RUN pip3 install --no-cache-dir ansible \
       && ansible --version
 
-COPY ansible-docker.sh /ansible-docker.sh
-ENTRYPOINT ["/ansible-docker.sh"]
+COPY ansible-docker.py /ansible-docker.py
+ENTRYPOINT ["/ansible-docker.py"]
