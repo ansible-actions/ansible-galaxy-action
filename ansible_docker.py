@@ -135,6 +135,9 @@ if __name__ == "__main__":
     github_organisation = gh_parts[0]
     github_repo = gh_parts[1]
 
+    # config for galaxy
+    write_ansible_galaxy_config(f"{galaxy_api_key}", f"{galaxy_api}")
+
     # execute linting commands
     execute = AnsibleCommandExecution()
 
