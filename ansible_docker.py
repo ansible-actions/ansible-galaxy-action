@@ -62,6 +62,7 @@ def is_url(string):
     """
     try:
         result = urlparse(string)
+        print(result)
         return str(string)
     except ValueError:
         print(f"{string} is not a valid URL.\nCANCEL")
@@ -123,9 +124,8 @@ if __name__ == "__main__":
     galaxy_api = str(is_url(galaxy_api_url))
     if galaxy_api == "":
         print("galaxy_api needs to be defined")
-        sys.exit(1)
-    else:
         print(f"galaxy api is {galaxy_api}, default is 'https://galaxy.ansible.com/api/'.")
+        sys.exit(1)
 
     # define git repo ans user/organisation
     github_repository_env = EnvironmentManager('GITHUB_REPOSITORY')
@@ -139,8 +139,8 @@ if __name__ == "__main__":
     execute = AnsibleCommandExecution()
 
     # run ansible galaxy
-    linting_command = ["/usr/local/bin/ansible-galaxy", "role", "import",
-    "--branch", f"{git_branch}", f"{github_organisation}", f"{github_repo}"]
+    linting_command = ["/usr/local/bin/ansible-galaxy", "role", "import", "-vvv", "--api-key",
+      f"{galaxy_api_key}", "--branch", f"{git_branch}", f"{github_organisation}", f"{github_repo}"]
     upload_run = execute.run_command(linting_command)
     upload_result = f"""
 ---start+galaxy-ng+role+publish---
