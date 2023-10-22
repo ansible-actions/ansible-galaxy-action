@@ -27,16 +27,16 @@ jobs:
           fetch-depth: 0
 
       - name: 'Release on galaxy'
-        uses: ansible-actions/ansible-galaxy-action@v1.0.0
+        uses: ansible-actions/ansible-galaxy-action@v1.0.1
         with:
-          galaxy_api_key: ${{ secrets.galaxy_api_key }
+          galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
 
 You can define the described variables like this:
 ```yaml
 [...]
         with:
-          galaxy_api_key: ${{ secrets.galaxy_api_key }
+          galaxy_api_key: ${{ secrets.galaxy_api_key }}
           git_branch: 'main'
           path: './'
           galaxy_api: 'https://galaxy.ansible.com/api/'
