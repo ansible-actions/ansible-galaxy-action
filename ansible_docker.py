@@ -81,7 +81,12 @@ url = {galaxy_api_value}
 token = {galaxy_api_key_value}
 """
 
-    file_path = "~/.ansible.cfg"
+    file_path = "/etc/ansible/galaxy.cfg"
+    directory_path = '/etc/ansible/'
+
+    # Check if the directory exists, and if not, create it
+    if not os.path.exists(directory_path):
+        os.makedirs(directory_path)
 
     # Inhalt in die Datei schreiben
     with open(file_path, "w", encoding="utf-8") as file:
