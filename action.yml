@@ -29,7 +29,7 @@ runs:
     GALAXY_API_KEY: ${{ inputs.galaxy_api_key }}
     GIT_BRANCH: ${{ inputs.git_branch }}
     PATH: ${{ inputs.path }}
-    GALAXY_API: ${{ inputs.galaxypath }}
+    GALAXY_API: ${{ inputs.galaxy_api }}
 branding:
   icon: 'upload-cloud'
   color: 'black'
