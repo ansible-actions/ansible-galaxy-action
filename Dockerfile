@@ -9,4 +9,4 @@ LABEL "homepage"="https://github.com/ansible-actions/ansible-publish-galaxy"
 RUN pip3 install --no-cache-dir ansible
 
 COPY ansible_docker.py /ansible_docker.py
-CMD [ "python3", "/ansible_docker.py" ]
+CMD [ "/usr/local/bin/python3", "/ansible_docker.py" ]
