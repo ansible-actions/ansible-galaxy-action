@@ -6,8 +6,7 @@ LABEL "repository"="https://github.com/ansible-actions/ansible-publish-galaxy.gi
 LABEL "homepage"="https://github.com/ansible-actions/ansible-publish-galaxy"
 
 # hadolint ignore=DL3008,DL3013,SC1091
-RUN pip3 install --no-cache-dir ansible \
-      && ansible --version
+RUN pip3 install --no-cache-dir ansible
 
-COPY ansible-docker.py /ansible-docker.py
-CMD [ "python", "/ansible-docker.py"]
+COPY ansible_docker.py /ansible_docker.py
+CMD [ "python", "/ansible_docker.py"]
