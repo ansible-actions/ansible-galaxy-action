@@ -62,7 +62,7 @@ def is_url(string):
     """
     try:
         result = urlparse(string)
-        return all([result.scheme, result.netloc])
+        return str(string)
     except ValueError:
         print(f"{string} is not a valid URL.\nCANCEL")
         sys.exit(1)
