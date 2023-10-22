@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Action to publish ansible roles to galaxy.ansible.com (galaxy-ng)
+Action to upload ansible roles to galaxy.ansible.com (galaxy-ng)
 """
 import subprocess
 import os
@@ -147,13 +147,17 @@ if __name__ == "__main__":
     execute = AnsibleCommandExecution()
 
     # run ansible galaxy
-    linting_command = ["/usr/local/bin/ansible-galaxy", "role", "import", "-vvv", "--api-key",
+    import_command = ["/usr/local/bin/ansible-galaxy", "role", "import", "-vvv", "--api-key",
       f"{galaxy_api_key}", "--branch", f"{git_branch}", f"{github_organisation}", f"{github_repo}"]
-    upload_run = execute.run_command(linting_command)
+    upload_run = execute.run_command(import_command)
     upload_result = f"""
----start+galaxy-ng+role+publish---
+---start+galaxy-ng+role+upload---
+/usr/local/bin/ansible-galaxyrole import -vvv \\
+    --api-key *********** \\
+    --branch {git_branch} \\
+    {github_organisation} {github_repo}
 {upload_run}
 Galaxy upload run executed
----end+galaxy-ng+role+publish---
+---end+galaxy-ng+role+upload---
 """
     print(upload_result)
