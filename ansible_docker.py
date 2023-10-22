@@ -124,6 +124,8 @@ if __name__ == "__main__":
     if galaxy_api == "":
         print("galaxy_api needs to be defined")
         sys.exit(1)
+    else:
+        print(f"galaxy api is {galaxy_api}, default is 'https://galaxy.ansible.com/api/'.")
 
     # define git repo ans user/organisation
     github_repository_env = EnvironmentManager('GITHUB_REPOSITORY')
