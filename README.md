@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    name: Jinja2 Linting
+    name: Galaxy Role Importer
     runs-on: ubuntu-latest
 
     steps:
