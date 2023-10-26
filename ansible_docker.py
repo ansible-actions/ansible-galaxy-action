@@ -35,7 +35,7 @@ class EnvironmentManager:
             print(f"The value of {self.env_var_name} is: {self.env_var_value}")
             return f"{self.env_var_value}"
         print(f"The variable {self.env_var_name} is not set.")
-        return "undefined"
+        return ""
 
     def check_secret_environment_variable(self):
         """
@@ -122,14 +122,11 @@ if __name__ == "__main__":
     env_git_branch = EnvironmentManager(ENV_GIT_BRANCH_NAME)
     git_branch_check = env_git_branch.check_optional_environment_variable_without_default()
     if git_branch_check == "":
-        print("git_branch needs to be defined")
-        sys.exit(1)
-    elif git_branch_check == "undefined":
         print("USing GITHUB_REF_NAME as git_branch")
         env_github_ref_name = EnvironmentManager('GITHUB_REF_NAME')
         git_branch = env_github_ref_name.check_optional_environment_variable_with_default()
         if git_branch == "":
-            print("git_branch needs to be defined")
+            print("git_branch needs to be defined. Using GITHUB_REF_NAME failed")
             sys.exit(1)
     else:
         git_branch = git_branch_check
