@@ -47,10 +47,10 @@ You can define the described variables like this:
 | name | default value | description |
 | --- | --- | --- |
 | ``galaxy_api_key`` | - | Your personal Galaxy-NG API Token |
-| ``git_branch`` | ``main`` | The git branch of the ansible role you're uploading. |
 | ``path`` | ``./`` | The location of your role. (relative path) |
 | ``galaxy_api`` | ``https://galaxy.ansible.com/api/`` | Ansible Galaxy API |
-
+| ``galaxy_version`` | - | The galaxy version for galaxy-ng.|
 ## Some Hints
 + You find your [Galaxy-NG Token](https://galaxy.ansible.com/ui/token/) on Galaxy-NG -> Collections -> API-Token. The collections token is valid for roles too.
 + You can only import new role releases on ansible-galaxy
++ The galaxy version is provided with the ``ansible-galaxy role import --branch "$galaxy_version"`` option on the galaxy import tool. The default value for it is the ``GITHUB_REF_NAME`` env varaible. Even it looks like the github branch should be put in this option, in the galaxy-ng it will use this string as version.
