@@ -37,7 +37,7 @@ You can define the described variables like this:
 [...]
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
-          git_branch: 'main'
+          galaxy_version: '1.2.3'
           path: './'
           galaxy_api: 'https://galaxy.ansible.com/api/'
 ```
