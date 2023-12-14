@@ -122,12 +122,8 @@ if __name__ == "__main__":
     env_git_branch = EnvironmentManager(ENV_GIT_BRANCH_NAME)
     git_branch_check = env_git_branch.check_optional_environment_variable_without_default()
     if git_branch_check == "":
-        print("USing GITHUB_REF_NAME as git_branch")
-        env_github_ref_name = EnvironmentManager('GITHUB_REF_NAME')
-        git_branch = env_github_ref_name.check_optional_environment_variable_with_default()
-        if git_branch == "":
-            print("git_branch needs to be defined. Using GITHUB_REF_NAME failed")
-            sys.exit(1)
+        print("Using main as git_branch")
+        git_branch = 'main'
     else:
         git_branch = git_branch_check
 
