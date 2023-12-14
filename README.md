@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 0
 
       - name: 'Release on galaxy'
-        uses: ansible-actions/ansible-galaxy-action@v1.1.1
+        uses: ansible-actions/ansible-galaxy-action@v1.2.0
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
@@ -53,4 +53,4 @@ You can define the described variables like this:
 ## Some Hints
 + You find your [Galaxy-NG Token](https://galaxy.ansible.com/ui/token/) on Galaxy-NG -> Collections -> API-Token. The collections token is valid for roles too.
 + You can only import new role releases on ansible-galaxy
-+ The galaxy version is provided with the ``ansible-galaxy role import --branch "$galaxy_version"`` option on the galaxy import tool. The default value for it is the ``GITHUB_REF_NAME`` env varaible. Even it looks like the github branch should be put in this option, in the galaxy-ng it will use this string as version.
++ The galaxy version is provided with the ``ansible-galaxy role import --branch "$galaxy_version"`` option on the galaxy import tool. The default value ``main`` as branch name.
